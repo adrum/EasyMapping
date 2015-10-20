@@ -217,7 +217,6 @@
     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:mapping.entityName];
     NSPredicate * predicate = [NSPredicate predicateWithFormat:@"%K IN %@", mapping.primaryKey, lookupValues];
     [fetchRequest setPredicate:predicate];
-    [fetchRequest setFetchLimit:lookupValues.count];
 
     NSMutableDictionary * output = [NSMutableDictionary new];
     NSArray * existingObjects = [self.context executeFetchRequest:fetchRequest error:NULL];
